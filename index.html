@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Julie Lam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Mulish:wght@300;400;500&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --warm-white: #f6f3ec;
+      --warm-brown: #36302a;
+      --mid-brown: #8b7046;
+      --light-tan: #cdae94;
+      --text-dark: #2a2218;
+      --serif: 'Libre Baskerville', Georgia, serif;
+      --sans: 'Mulish', sans-serif;
+      --display: 'Raleway', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--text-dark); background: var(--warm-white); overflow-x: hidden; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--warm-white);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(54,48,42,0.1);
+      transition: transform 0.3s ease;
+    }
+    .header-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 4vw;
+      height: 72px;
+    }
+    .logo img { height: 56px; display: block; object-fit: contain; }
+    nav { display: flex; align-items: center; gap: 2rem; }
+    nav a, .nav-folder > button {
+      font-family: var(--display); font-size: 0.82rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--warm-brown); text-decoration: none;
+      background: none; border: none; cursor: pointer; padding: 0;
+      transition: color 0.2s;
+    }
+    nav a:hover, .nav-folder > button:hover { color: var(--mid-brown); }
+    .nav-folder { position: relative; }
+    .dropdown {
+      display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+      background: var(--warm-white); border: 1px solid rgba(54,48,42,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      min-width: 240px; padding: 0.5rem 0;
+    }
+    .nav-folder:hover .dropdown { display: block; }
+    .dropdown a {
+      display: block; padding: 0.6rem 1.2rem;
+      font-size: 0.78rem; letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .dropdown a:hover { background: rgba(139,112,70,0.08); }
+    .social-links { display: flex; gap: 0.8rem; align-items: center; margin-left: 1rem; }
+    .social-links a { display: flex; align-items: center; color: var(--warm-brown); transition: color 0.2s; }
+    .social-links a:hover { color: var(--mid-brown); }
+    .social-links svg { width: 20px; height: 20px; }
+    .burger { display: none; background: none; border: none; cursor: pointer; padding: 0; flex-direction: column; gap: 5px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--warm-brown); transition: all 0.3s; }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; background: var(--warm-white);
+      z-index: 99; padding: 6rem 2rem 2rem; flex-direction: column; gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--display); font-size: 1.2rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--warm-brown); text-decoration: none; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 93vh;
+      display: flex; align-items: flex-start; justify-content: center;
+      padding-top: 140px; padding-bottom: 8vw;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/1772471516224-AQM42IM01XF2CW1HP818/unsplash-image-i4337tJR75s.jpg');
+      background-size: cover; background-position: center;
+    }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(30,35,10,0.63); }
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 680px; padding: 3rem 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: var(--display); font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #fff; line-height: 1.2; margin-bottom: 1.5rem;
+    }
+    .hero .tagline {
+      font-family: var(--serif); font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: rgba(255,255,255,0.92); line-height: 1.7;
+      margin-bottom: 2rem; font-style: italic;
+    }
+    .hero .tagline strong { font-style: normal; }
+    .hero p {
+      font-family: var(--sans); font-size: 0.95rem; color: rgba(255,255,255,0.85);
+      line-height: 1.8; margin-bottom: 0.6rem;
+    }
+    .hero-cta {
+      display: inline-block; margin-top: 2.5rem;
+      background: rgba(255,255,255,0.15); color: #fff;
+      border: 1px solid rgba(255,255,255,0.6);
+      font-family: var(--display); font-size: 0.8rem; letter-spacing: 0.1em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 0.9rem 2.2rem;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .hero-cta:hover { background: rgba(255,255,255,0.28); border-color: #fff; }
+    .wavy-divider { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
+    .wavy-divider svg { display: block; width: 100%; }
+
+    /* ── YOU DID NOT BECOME ── */
+    .about-intro { background: var(--warm-white); padding: 6vw 4vw; position: relative; }
+    .about-intro-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+    }
+    .about-intro-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .about-intro-text h2 {
+      font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: var(--warm-brown); margin-bottom: 2rem; line-height: 1.4;
+    }
+    .about-intro-text p {
+      font-family: var(--sans); font-size: 0.95rem; line-height: 1.9;
+      color: #4a3e30; margin-bottom: 0.7rem;
+    }
+    .highlight-text {
+      background: rgba(139,112,70,0.08); border-left: 3px solid var(--mid-brown);
+      padding: 1rem 1.2rem; margin-top: 2rem;
+      font-family: var(--serif); font-style: italic; font-size: 1rem;
+      color: var(--warm-brown); line-height: 1.7;
+    }
+
+    /* ── ABOUT ME ── */
+    .about-section {
+      position: relative; padding: 8vw 4vw;
+      background-image: url('https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/4b412fd2-8d2a-46ef-9ea2-bced290245e5/Sebastian-185.jpg');
+      background-size: cover; background-position: 67% 42%;
+    }
+    .about-overlay { position: absolute; inset: 0; background: rgba(30,20,10,0.76); }
+    .about-section-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+    .about-section h2 {
+      font-family: var(--display); font-size: clamp(2.5rem, 5vw, 4rem);
+      color: rgba(255,255,255,0.95); margin-bottom: 2rem; letter-spacing: 0.04em;
+    }
+    .about-columns {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start;
+    }
+    .about-text p {
+      font-family: var(--sans); font-size: 0.9rem; line-height: 1.9;
+      color: rgba(255,255,255,0.82); margin-bottom: 0.7rem;
+    }
+    .about-text a { color: var(--light-tan); }
+    .about-text strong {
+      display: block; margin-top: 1.5rem; margin-bottom: 0.5rem;
+      font-family: var(--display); font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--light-tan);
+    }
+
+    /* ── COURSES ── */
+    .courses { background: var(--warm-white); padding: 6vw 4vw; }
+    .courses-inner { max-width: 1200px; margin: 0 auto; }
+    .carousel-wrapper { position: relative; overflow: hidden; }
+    .carousel-track {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+    }
+    .course-card { text-align: center; }
+    .course-img-wrap {
+      width: 100%; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+      margin: 0 auto 2rem;
+    }
+    .course-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .course-card h2 {
+      font-family: var(--serif); font-size: 1.3rem; color: var(--warm-brown);
+      margin-bottom: 1rem; line-height: 1.4;
+    }
+    .course-card p { font-size: 0.88rem; line-height: 1.8; color: #5a4a36; margin-bottom: 0.5rem; }
+    .course-btn {
+      display: inline-block; margin-top: 1.2rem;
+      border: 1px solid var(--warm-brown); color: var(--warm-brown);
+      font-family: var(--display); font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 0.7rem 1.6rem;
+      transition: background 0.25s, color 0.25s;
+    }
+    .course-btn:hover { background: var(--warm-brown); color: var(--warm-white); }
+    .carousel-nav {
+      display: flex; gap: 1rem; margin-top: 2.5rem; justify-content: flex-start;
+      padding-left: 3vw;
+    }
+    .carousel-btn {
+      background: none; border: 1px solid var(--warm-brown); padding: 0.5rem 1.2rem;
+      cursor: pointer; font-family: var(--display); font-size: 0.75rem;
+      letter-spacing: 0.1em; color: var(--warm-brown); transition: all 0.25s;
+    }
+    .carousel-btn:hover { background: var(--warm-brown); color: var(--warm-white); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #3a2f22; color: rgba(255,255,255,0.75);
+      padding: 5vw 4vw;
+    }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 3rem; align-items: start;
+    }
+    .footer-logos { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+    .footer-logos img { max-height: 60px; max-width: 180px; object-fit: contain; filter: brightness(0) invert(0.85); }
+    .footer-subscribe h3 {
+      font-family: var(--display); font-size: 1rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 0.5rem;
+    }
+    .footer-subscribe p { font-size: 0.82rem; margin-bottom: 1.2rem; line-height: 1.7; }
+    .subscribe-form { display: flex; gap: 0; }
+    .subscribe-form input {
+      flex: 1; padding: 0.7rem 1rem; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.25); border-right: none;
+      color: #fff; font-family: var(--sans); font-size: 0.85rem;
+      outline: none;
+    }
+    .subscribe-form input::placeholder { color: rgba(255,255,255,0.45); }
+    .subscribe-form button {
+      padding: 0.7rem 1.2rem; background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25); color: #fff;
+      font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer; transition: background 0.25s;
+    }
+    .subscribe-form button:hover { background: rgba(255,255,255,0.28); }
+    .footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.8rem; line-height: 1.6; }
+    .footer-right { text-align: center; }
+    .footer-right a {
+      display: block; font-family: var(--display); font-size: 0.95rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+      padding-bottom: 0.3rem; margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    .footer-social { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; }
+    .footer-social a { color: rgba(255,255,255,0.7); transition: color 0.2s; }
+    .footer-social a:hover { color: #fff; }
+    .footer-social svg { width: 24px; height: 24px; }
+    .copyright { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; line-height: 1.8; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-intro-grid { grid-template-columns: 1fr; }
+      .about-columns { grid-template-columns: 1fr; }
+      .carousel-track { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      nav, .social-links { display: none; }
+      .burger { display: flex; }
+      .course-img-wrap { max-width: 280px; }
+    }
+    @media (max-width: 600px) {
+      .hero-content { padding: 2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/1f96c53e-412b-4cda-aad0-f2b21153130d/Julie+Chop+Logo+%281%29.png?format=500w" alt="Julie Lam">
+    </a>
+    <nav>
+      <a href="#">Home</a>
+      <div class="nav-folder">
+        <button>Courses ○</button>
+        <div class="dropdown">
+          <a href="#">The Connected Presence Practice</a>
+          <a href="#">1:1 Presence</a>
+          <a href="#">Mini Courses</a>
+          <a href="#">Teacher Training Qualification</a>
+        </div>
+      </div>
+      <a href="#">My Book</a>
+      <a href="#">Events &amp; Workshops</a>
+      <a href="#">Blog</a>
+      <a href="#">Connect</a>
+    </nav>
+    <div class="social-links">
+      <a href="http://instagram.com/thejulielam" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 64 64" fill="currentColor"><path d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,25.993c-0.994,0-1.8-0.806-1.8-1.8s0.806-1.8,1.8-1.8s1.8,0.806,1.8,1.8S41.001,25.993,40.007,25.993z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/JulieLam" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 64 64" fill="currentColor"><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z"/></svg>
+      </a>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#">Home</a>
+  <a href="#">Courses</a>
+  <a href="#">My Book</a>
+  <a href="#">Events &amp; Workshops</a>
+  <a href="#">Blog</a>
+  <a href="#">Connect</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>The Connected Presence<br>PRACTICE</h1>
+    <div class="tagline">
+      <strong>True Leadership does not control.</strong><br>
+      <strong>It empowers through aware presence.</strong>
+    </div>
+    <p>A structured developmental pathway for high responsibility women who care deeply and carry a great deal.</p>
+    <p>The way you were met as a child still shapes how you carry responsibility today.</p>
+    <p>There is another way to lead.</p>
+    <a href="#" class="hero-cta">Apply for the 8 Week Journey</a>
+  </div>
+  <div class="wavy-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1440,0 1440,30 L1440,60 L0,60 Z" fill="#f6f3ec"/>
+    </svg>
+  </div>
+</section>
+
+<!-- YOU DID NOT BECOME THIS WAY BY ACCIDENT -->
+<section class="about-intro">
+  <div class="about-intro-grid">
+    <img class="about-intro-img"
+      src="https://images.squarespace-cdn.com/content/v1/5ec321c2af33de48734cc929/9d48a428-fcff-42ed-8245-25042588d094/imgg-demo-Zr0XVdxX.png"
+      alt="" loading="lazy">
+    <div class="about-intro-text">
+      <h2>You did not become this way by accident</h2>
+      <p>The women I work with think deeply.</p>
+      <p>They care deeply.</p>
+      <p>They notice things others often miss.</p>
+      <p>They hold responsibility with sincerity.</p>
+      <p>They are often the steady one in the room.</p>
+      <p>And somewhere along the way, they learned to carry more than was theirs.</p>
+      <p>Not because they had to. Because they could.</p>
+      <p>If something felt uncertain, they stepped in. If someone struggled, they compensated. If something might fall apart, they held it together.</p>
+      <p>Over time, that capacity became over carrying.</p>
+      <p>They support everyone else. And quietly move themselves to the bottom of the list.</p>
+      <p>They do not see it as neglect. They see it as responsibility.</p>
+      <p>But inside, it feels effortful. Like a subtle tightening. Like life is being managed rather than experienced.</p>
+      <p>That is not weakness.</p>
+      <div class="highlight-text">It is a developmental pattern that has not yet been integrated.<br><br>Competence can quietly become over carrying. Carrying more than your share can become a habit.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT ME -->
+<section class="about-section">
+  <div class="about-overlay"></div>
+  <div class="about-section-inner">
+    <div class="about-columns">
+      <div>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-text">
+        <p>For nearly forty years I have worked closely with children, parents, teachers, and leaders.</p>
+        <p>I founded and led early childhood schools in both Hong Kong and the UK, bridging educational approaches across cultures and working closely with families from diverse backgrounds. I established a school for my own children. I developed and led a UK government recognised training programme.</p>
+        <p>But what shaped me most was not the institutions. It was observing.</p>
+        <p>Watching what happens when a child feels safe and truly met. Observing what happens when they do not.</p>
+        <p>Some children withdraw. Some become very compliant. Some act out, call out, or test the edges of the room.</p>
+        <p>None of this is random. It is adaptation.</p>
+        <p>Years later, I began to recognise those same patterns in capable, responsible adults. The over functioning. The constant managing. The quiet self neglect.</p>
+        <p>I have raised four children. I am now a grandmother. I know what it is to hold responsibility for others. To be relied upon. To stay steady even when you are exhausted.</p>
+        <p>And I know the moment of realising I was carrying more than was mine.</p>
+        <p>The way we are met as children shapes how we relate as adults. It shapes how we speak in a meeting. How we respond to conflict. How much we believe we must hold on our own.</p>
+        <p>Connected Presence grew from years of observing this arc across generations and cultures.</p>
+        <p>My book, <a href="#"><em>From the Heart of Childhood: Reclaiming Presence for Connection</em></a>, holds many of the reflections and experiences that shaped the 8 stage Connected Presence Pathway.</p>
+        <p>I do not teach women to push harder. I help them recognise the patterns that once kept them safe and capable, and to soften and listen to what is now needed.</p>
+        <p>So they can lead with clarity rather than constant effort. So they can feel present without carrying everything alone.</p>
+        <strong>Professional Background</strong>
+        <p>I hold a university degree in Language and Management and trained as an Early Childhood Teacher. I am qualified in Therapeutic Play, Counselling, and Nutrition. I developed and led a UK government recognised training programme. I am a published author and a recognised teacher with the Active Practical Love Initiative, and I have undertaken Compassionate Inquiry study.</p>
+        <p>When early patterns are brought into awareness and gently integrated, something shifts. Leadership becomes steadier. Relationships feel less effortful. Life feels less like something to manage and more like something to inhabit.</p>
+        <p><a href="#">Explore the 8 Week Connected Presence Practice →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses" id="courses">
+  <div class="courses-inner">
+    <div class="carousel-track" id="carouselTrack">
+
+      <div class="course-card">
+        <div class="course-img-wrap">
+          <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/41b899ce-fe52-41f9-9cef-1ac6f193e447/website+connected+presence.png?format=500w"
+            alt="The Connected Presence Practice" loading="lazy">
+        </div>
+        <h2>The Connected Presence Practice</h2>
+        <p>An 8 week small group experience for high responsibility women who are ready to feel more steady, more connected, and more fully themselves again.</p>
+        <p>Through weekly live sessions and simple daily reflection, you move through a structured 8 stage developmental pathway that restores grounded presence across body, heart, and mind.</p>
+        <p>Transformation happens through listening, relational depth, and steady participation in a carefully held group of no more than 10 women.</p>
+        <p><em>Practical. Developmental. Deeply human.</em></p>
+        <a class="course-btn" href="#">Discover More</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-img-wrap">
+          <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/b3d33a33-ca50-4a00-98c5-0496ba287aa9/1%3A1+Presence.png?format=500w"
+            alt="1:1 Presence Sessions" loading="lazy">
+        </div>
+        <h2>1:1 Presence Sessions</h2>
+        <p>A more personal and tailored experience of the Connected Presence pathway.</p>
+        <p>In private mentoring, we work at your pace, focusing on the specific situations and responsibilities you are navigating in your leadership, family, and relationships.</p>
+        <p>There is more time to explore, reflect, and integrate.</p>
+        <p><em>Steady guidance. Careful listening. Depth without rush.</em></p>
+        <p>Enquiry by request.</p>
+        <a class="course-btn" href="#">Find Out More</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-img-wrap">
+          <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/59907843-7333-450d-9328-24f554e71264/pexels-cottonbro-4039148.jpg?format=500w"
+            alt="Mini Courses" loading="lazy">
+        </div>
+        <h2>Mini Courses</h2>
+        <p>Self paced courses for parents, teachers, and therapists who want a deeper understanding of childhood development and the role of presence in shaping learning.</p>
+        <p>Drawn from decades of school leadership and teacher training, these courses explore play, storytelling, behaviour, and artistic practice in a grounded and practical way.</p>
+        <p><em>Thoughtful. Relational. Immediately applicable.</em></p>
+        <a class="course-btn" href="#">Click Here</a>
+      </div>
+
+    </div>
+
+    <!-- 4th card shown on click -->
+    <div class="course-card" id="course4" style="display:none; margin-top:2rem; text-align:center;">
+      <div class="course-img-wrap" style="max-width:280px; margin:0 auto 2rem;">
+        <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/77b523a1-e9d2-4950-a13c-f180ecf694f2/jeremy-bishop-EwKXn5CapA4-unsplash.jpg?format=500w"
+          alt="Level 4 Diploma" loading="lazy">
+      </div>
+      <h2>Level 4 Diploma in Steiner Waldorf Early Childhood Studies</h2>
+      <p>An official training for The Waldorf Early Years Curriculum. It includes online sessions and an extensive online library of resources. Guidance into artistic activity and self development and group processing throughout.</p>
+      <p>There is an option to enrol termly for both parents and teachers. Can be for recognised CPD. The full course leads to a Level 4 Diploma through Crossfields Institute and is a UK Ofqual recognised Early Years teaching course.</p>
+      <a class="course-btn" href="#">More Info Here</a>
+    </div>
+
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="prevBtn">← Previous</button>
+      <button class="carousel-btn" id="nextBtn">Next →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-logos">
+      <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/0fe7895e-24b8-4b9e-acd1-87f1a8d5875e/Julie+Chop+Logo+%281%29.png?format=500w" alt="Julie Lam Logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/6ae94ffc-c720-49cf-ad25-9d1b210dca8e/hh+logobrown.png?format=300w" alt="Highgate House">
+      <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/395313e0-95bc-4806-be47-b99408b37e65/Little-Steps-Asia.png?format=300w" alt="Little Steps Asia">
+      <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/a35b05ae-c22b-45bf-90f1-e3e58a888afb/Master-1-4.jpg?format=500w" alt="Featured in Kindling Journal">
+    </div>
+    <div class="footer-subscribe">
+      <h3>Subscribe</h3>
+      <p>Sign up to receive offers and new articles.</p>
+      <div class="subscribe-form">
+        <input type="email" placeholder="Email Address">
+        <button type="submit">Sign Up</button>
+      </div>
+      <p class="footer-note">We respect your privacy. We will not share your email with anyone.</p>
+    </div>
+    <div class="footer-right">
+      <a href="#">Enquiries</a>
+      <div class="footer-social">
+        <a href="http://instagram.com/thejulielam" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 64 64" fill="currentColor"><path d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,25.993c-0.994,0-1.8-0.806-1.8-1.8s0.806-1.8,1.8-1.8s1.8,0.806,1.8,1.8S41.001,25.993,40.007,25.993z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/JulieLam" target="_blank" aria-label="Facebook">
+          <svg viewBox="0 0 64 64" fill="currentColor"><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z"/></svg>
+        </a>
+      </div>
+      <p class="copyright">© 1992 HIGHGATE HOUSE SCHOOL FOUNDATION LTD.<br>WWW.JULIE-LAM.COM<br>ALL RIGHTS RESERVED.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+  // Simple carousel: show/hide 4th card
+  let showing4 = false;
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    const c4 = document.getElementById('course4');
+    if (!showing4) { c4.style.display = 'block'; showing4 = true; }
+  });
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    const c4 = document.getElementById('course4');
+    if (showing4) { c4.style.display = 'none'; showing4 = false; }
+  });
+
+  // Sticky header hide on scroll down
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    document.getElementById('header').style.transform = (y > lastY && y > 80) ? 'translateY(-100%)' : 'translateY(0)';
+    lastY = y;
+  });
+</script>
+</body>
+</html>
