@@ -38,7 +38,11 @@
       padding: 0 4vw;
       height: 72px;
     }
-    .logo img { height: 56px; display: block; object-fit: contain; }
+    .logo {
+      font-family: var(--display); font-size: 1.1rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--warm-brown); text-decoration: none;
+    }
     nav { display: flex; align-items: center; gap: 2rem; }
     nav a, .nav-folder > button {
       font-family: var(--display); font-size: 0.82rem; letter-spacing: 0.06em;
@@ -82,10 +86,9 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/1772471516224-AQM42IM01XF2CW1HP818/unsplash-image-i4337tJR75s.jpg');
-      background-size: cover; background-position: center;
+      background: linear-gradient(135deg, #2a2010 0%, #3d3020 35%, #5a4530 65%, #4a3a28 100%);
     }
-    .hero-overlay { position: absolute; inset: 0; background: rgba(30,35,10,0.63); }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(30,35,10,0.45); }
     .hero-content {
       position: relative; z-index: 1;
       max-width: 680px; padding: 3rem 2rem;
@@ -125,7 +128,7 @@
       max-width: 1200px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
     }
-    .about-intro-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .about-intro-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; }
     .about-intro-text h2 {
       font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 2rem);
       color: var(--warm-brown); margin-bottom: 2rem; line-height: 1.4;
@@ -144,10 +147,8 @@
     /* ── ABOUT ME ── */
     .about-section {
       position: relative; padding: 8vw 4vw;
-      background-image: url('https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/4b412fd2-8d2a-46ef-9ea2-bced290245e5/Sebastian-185.jpg');
-      background-size: cover; background-position: 67% 42%;
+      background: linear-gradient(160deg, #1e140a 0%, #2d2010 50%, #1a1208 100%);
     }
-    .about-overlay { position: absolute; inset: 0; background: rgba(30,20,10,0.76); }
     .about-section-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
     .about-section h2 {
       font-family: var(--display); font-size: clamp(2.5rem, 5vw, 4rem);
@@ -174,12 +175,7 @@
     .carousel-track {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
     }
-    .course-card { text-align: center; }
-    .course-img-wrap {
-      width: 100%; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
-      margin: 0 auto 2rem;
-    }
-    .course-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .course-card { text-align: center; padding: 2rem 1rem; }
     .course-card h2 {
       font-family: var(--serif); font-size: 1.3rem; color: var(--warm-brown);
       margin-bottom: 1rem; line-height: 1.4;
@@ -214,8 +210,11 @@
       max-width: 1200px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 3rem; align-items: start;
     }
-    .footer-logos { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
-    .footer-logos img { max-height: 60px; max-width: 180px; object-fit: contain; filter: brightness(0) invert(0.85); }
+    .footer-brand {
+      font-family: var(--display); font-size: 1.1rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
     .footer-subscribe h3 {
       font-family: var(--display); font-size: 1rem; letter-spacing: 0.08em;
       text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 0.5rem;
@@ -239,7 +238,7 @@
     .footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.8rem; line-height: 1.6; }
     .footer-right { text-align: center; }
     .footer-right a {
-      display: block; font-family: var(--display); font-size: 0.95rem;
+      font-family: var(--display); font-size: 0.95rem;
       letter-spacing: 0.08em; text-transform: uppercase;
       color: rgba(255,255,255,0.85); text-decoration: none;
       border-bottom: 1px solid rgba(255,255,255,0.35);
@@ -260,7 +259,6 @@
       .footer-grid { grid-template-columns: 1fr; }
       nav, .social-links { display: none; }
       .burger { display: flex; }
-      .course-img-wrap { max-width: 280px; }
     }
     @media (max-width: 600px) {
       .hero-content { padding: 2rem 1.2rem; }
@@ -272,9 +270,7 @@
 <!-- HEADER -->
 <header id="header">
   <div class="header-inner">
-    <a class="logo" href="#">
-      <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/1f96c53e-412b-4cda-aad0-f2b21153130d/Julie+Chop+Logo+%281%29.png?format=500w" alt="Julie Lam">
-    </a>
+    <a class="logo" href="#">Julie Lam</a>
     <nav>
       <a href="#">Home</a>
       <div class="nav-folder">
@@ -286,7 +282,7 @@
           <a href="#">Teacher Training Qualification</a>
         </div>
       </div>
-      <a href="#">My Book</a>
+      <a href="book.html">My Book</a>
       <a href="#">Events &amp; Workshops</a>
       <a href="#">Blog</a>
       <a href="#">Connect</a>
@@ -341,8 +337,8 @@
 <section class="about-intro">
   <div class="about-intro-grid">
     <img class="about-intro-img"
-      src="https://images.squarespace-cdn.com/content/v1/5ec321c2af33de48734cc929/9d48a428-fcff-42ed-8245-25042588d094/imgg-demo-Zr0XVdxX.png"
-      alt="" loading="lazy">
+      src="images/julie-lam.jpg"
+      alt="Julie Lam" loading="lazy">
     <div class="about-intro-text">
       <h2>You did not become this way by accident</h2>
       <p>The women I work with think deeply.</p>
@@ -365,7 +361,6 @@
 
 <!-- ABOUT ME -->
 <section class="about-section">
-  <div class="about-overlay"></div>
   <div class="about-section-inner">
     <div class="about-columns">
       <div>
@@ -401,10 +396,6 @@
     <div class="carousel-track" id="carouselTrack">
 
       <div class="course-card">
-        <div class="course-img-wrap">
-          <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/41b899ce-fe52-41f9-9cef-1ac6f193e447/website+connected+presence.png?format=500w"
-            alt="The Connected Presence Practice" loading="lazy">
-        </div>
         <h2>The Connected Presence Practice</h2>
         <p>An 8 week small group experience for high responsibility women who are ready to feel more steady, more connected, and more fully themselves again.</p>
         <p>Through weekly live sessions and simple daily reflection, you move through a structured 8 stage developmental pathway that restores grounded presence across body, heart, and mind.</p>
@@ -414,10 +405,6 @@
       </div>
 
       <div class="course-card">
-        <div class="course-img-wrap">
-          <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/b3d33a33-ca50-4a00-98c5-0496ba287aa9/1%3A1+Presence.png?format=500w"
-            alt="1:1 Presence Sessions" loading="lazy">
-        </div>
         <h2>1:1 Presence Sessions</h2>
         <p>A more personal and tailored experience of the Connected Presence pathway.</p>
         <p>In private mentoring, we work at your pace, focusing on the specific situations and responsibilities you are navigating in your leadership, family, and relationships.</p>
@@ -428,10 +415,6 @@
       </div>
 
       <div class="course-card">
-        <div class="course-img-wrap">
-          <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/59907843-7333-450d-9328-24f554e71264/pexels-cottonbro-4039148.jpg?format=500w"
-            alt="Mini Courses" loading="lazy">
-        </div>
         <h2>Mini Courses</h2>
         <p>Self paced courses for parents, teachers, and therapists who want a deeper understanding of childhood development and the role of presence in shaping learning.</p>
         <p>Drawn from decades of school leadership and teacher training, these courses explore play, storytelling, behaviour, and artistic practice in a grounded and practical way.</p>
@@ -443,10 +426,6 @@
 
     <!-- 4th card shown on click -->
     <div class="course-card" id="course4" style="display:none; margin-top:2rem; text-align:center;">
-      <div class="course-img-wrap" style="max-width:280px; margin:0 auto 2rem;">
-        <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/77b523a1-e9d2-4950-a13c-f180ecf694f2/jeremy-bishop-EwKXn5CapA4-unsplash.jpg?format=500w"
-          alt="Level 4 Diploma" loading="lazy">
-      </div>
       <h2>Level 4 Diploma in Steiner Waldorf Early Childhood Studies</h2>
       <p>An official training for The Waldorf Early Years Curriculum. It includes online sessions and an extensive online library of resources. Guidance into artistic activity and self development and group processing throughout.</p>
       <p>There is an option to enrol termly for both parents and teachers. Can be for recognised CPD. The full course leads to a Level 4 Diploma through Crossfields Institute and is a UK Ofqual recognised Early Years teaching course.</p>
@@ -463,11 +442,8 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
-    <div class="footer-logos">
-      <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/0fe7895e-24b8-4b9e-acd1-87f1a8d5875e/Julie+Chop+Logo+%281%29.png?format=500w" alt="Julie Lam Logo">
-      <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/6ae94ffc-c720-49cf-ad25-9d1b210dca8e/hh+logobrown.png?format=300w" alt="Highgate House">
-      <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/395313e0-95bc-4806-be47-b99408b37e65/Little-Steps-Asia.png?format=300w" alt="Little Steps Asia">
-      <img src="https://images.squarespace-cdn.com/content/v1/63560b4d63f3f90767df87b8/a35b05ae-c22b-45bf-90f1-e3e58a888afb/Master-1-4.jpg?format=500w" alt="Featured in Kindling Journal">
+    <div>
+      <p class="footer-brand">Julie Lam</p>
     </div>
     <div class="footer-subscribe">
       <h3>Subscribe</h3>
