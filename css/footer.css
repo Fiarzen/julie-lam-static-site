@@ -1,0 +1,47 @@
+/* ── FOOTER ── */
+footer { background: #3a2f22; color: rgba(255,255,255,0.75); padding: 5vw 4vw; }
+.footer-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 3rem; align-items: start;
+}
+.footer-brand {
+  font-family: var(--display); font-size: 1.1rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.9);
+}
+.footer-subscribe h3 {
+  font-family: var(--display); font-size: 1rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 0.5rem;
+}
+.footer-subscribe p { font-size: 0.82rem; margin-bottom: 1.2rem; line-height: 1.7; }
+.subscribe-form { display: flex; }
+.subscribe-form input {
+  flex: 1; padding: 0.7rem 1rem; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25); border-right: none;
+  color: #fff; font-family: var(--sans); font-size: 0.85rem; outline: none;
+}
+.subscribe-form input::placeholder { color: rgba(255,255,255,0.45); }
+.subscribe-form button {
+  padding: 0.7rem 1.2rem; background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25); color: #fff;
+  font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.1em;
+  text-transform: uppercase; cursor: pointer; transition: background 0.25s;
+}
+.subscribe-form button:hover { background: rgba(255,255,255,0.28); }
+.footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.8rem; line-height: 1.6; }
+.footer-right { text-align: center; }
+.footer-right a {
+  font-family: var(--display); font-size: 0.95rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.85); text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.35); padding-bottom: 0.3rem;
+  margin-bottom: 1.5rem; display: inline-block;
+}
+.footer-social { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; }
+.footer-social a { color: rgba(255,255,255,0.7); transition: color 0.2s; }
+.footer-social a:hover { color: #fff; }
+.footer-social svg { width: 24px; height: 24px; }
+.copyright { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; line-height: 1.8; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}

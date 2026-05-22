@@ -7,272 +7,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Mulish:wght@300;400;500&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --warm-white: #f6f3ec;
-      --warm-brown: #36302a;
-      --mid-brown: #8b7046;
-      --light-tan: #cdae94;
-      --text-dark: #2a2218;
-      --serif: 'Libre Baskerville', Georgia, serif;
-      --sans: 'Mulish', sans-serif;
-      --display: 'Raleway', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); color: var(--text-dark); background: var(--warm-white); overflow-x: hidden; }
-
-    /* ── HEADER ── */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: var(--warm-white);
-      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-      border-bottom: 1px solid rgba(54,48,42,0.1);
-      transition: transform 0.3s ease;
-    }
-    .header-inner {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 4vw;
-      height: 72px;
-    }
-    .logo {
-      font-family: var(--display); font-size: 1.1rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--warm-brown); text-decoration: none;
-    }
-    nav { display: flex; align-items: center; gap: 2rem; }
-    nav a, .nav-folder > button {
-      font-family: var(--display); font-size: 0.82rem; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--warm-brown); text-decoration: none;
-      background: none; border: none; cursor: pointer; padding: 0;
-      transition: color 0.2s;
-    }
-    nav a:hover, .nav-folder > button:hover { color: var(--mid-brown); }
-    .nav-folder { position: relative; }
-    .dropdown {
-      display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
-      background: var(--warm-white); border: 1px solid rgba(54,48,42,0.12);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      min-width: 240px; padding: 0.5rem 0;
-    }
-    .nav-folder:hover .dropdown { display: block; }
-    .dropdown a {
-      display: block; padding: 0.6rem 1.2rem;
-      font-size: 0.78rem; letter-spacing: 0.04em;
-      white-space: nowrap;
-    }
-    .dropdown a:hover { background: rgba(139,112,70,0.08); }
-    .social-links { display: flex; gap: 0.8rem; align-items: center; margin-left: 1rem; }
-    .social-links a { display: flex; align-items: center; color: var(--warm-brown); transition: color 0.2s; }
-    .social-links a:hover { color: var(--mid-brown); }
-    .social-links svg { width: 20px; height: 20px; }
-    .burger { display: none; background: none; border: none; cursor: pointer; padding: 0; flex-direction: column; gap: 5px; }
-    .burger span { display: block; width: 24px; height: 2px; background: var(--warm-brown); transition: all 0.3s; }
-    .mobile-menu {
-      display: none; position: fixed; inset: 0; background: var(--warm-white);
-      z-index: 99; padding: 6rem 2rem 2rem; flex-direction: column; gap: 1.5rem;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-family: var(--display); font-size: 1.2rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--warm-brown); text-decoration: none; }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative; min-height: 93vh;
-      display: flex; align-items: flex-start; justify-content: center;
-      padding-top: 140px; padding-bottom: 8vw;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, #2a2010 0%, #3d3020 35%, #5a4530 65%, #4a3a28 100%);
-    }
-    .hero-overlay { position: absolute; inset: 0; background: rgba(30,35,10,0.45); }
-    .hero-content {
-      position: relative; z-index: 1;
-      max-width: 680px; padding: 3rem 2rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-family: var(--display); font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      color: #fff; line-height: 1.2; margin-bottom: 1.5rem;
-    }
-    .hero .tagline {
-      font-family: var(--serif); font-size: clamp(1rem, 1.8vw, 1.2rem);
-      color: rgba(255,255,255,0.92); line-height: 1.7;
-      margin-bottom: 2rem; font-style: italic;
-    }
-    .hero .tagline strong { font-style: normal; }
-    .hero p {
-      font-family: var(--sans); font-size: 0.95rem; color: rgba(255,255,255,0.85);
-      line-height: 1.8; margin-bottom: 0.6rem;
-    }
-    .hero-cta {
-      display: inline-block; margin-top: 2.5rem;
-      background: rgba(255,255,255,0.15); color: #fff;
-      border: 1px solid rgba(255,255,255,0.6);
-      font-family: var(--display); font-size: 0.8rem; letter-spacing: 0.1em;
-      text-transform: uppercase; text-decoration: none;
-      padding: 0.9rem 2.2rem;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .hero-cta:hover { background: rgba(255,255,255,0.28); border-color: #fff; }
-    .wavy-divider { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
-    .wavy-divider svg { display: block; width: 100%; }
-
-    /* ── YOU DID NOT BECOME ── */
-    .about-intro { background: var(--warm-white); padding: 6vw 4vw; position: relative; }
-    .about-intro-grid {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
-    }
-    .about-intro-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; }
-    .about-intro-text h2 {
-      font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 2rem);
-      color: var(--warm-brown); margin-bottom: 2rem; line-height: 1.4;
-    }
-    .about-intro-text p {
-      font-family: var(--sans); font-size: 0.95rem; line-height: 1.9;
-      color: #4a3e30; margin-bottom: 0.7rem;
-    }
-    .highlight-text {
-      background: rgba(139,112,70,0.08); border-left: 3px solid var(--mid-brown);
-      padding: 1rem 1.2rem; margin-top: 2rem;
-      font-family: var(--serif); font-style: italic; font-size: 1rem;
-      color: var(--warm-brown); line-height: 1.7;
-    }
-
-    /* ── ABOUT ME ── */
-    .about-section {
-      position: relative; padding: 8vw 4vw;
-      background: linear-gradient(160deg, #1e140a 0%, #2d2010 50%, #1a1208 100%);
-    }
-    .about-section-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
-    .about-section h2 {
-      font-family: var(--display); font-size: clamp(2.5rem, 5vw, 4rem);
-      color: rgba(255,255,255,0.95); margin-bottom: 2rem; letter-spacing: 0.04em;
-    }
-    .about-columns {
-      display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start;
-    }
-    .about-text p {
-      font-family: var(--sans); font-size: 0.9rem; line-height: 1.9;
-      color: rgba(255,255,255,0.82); margin-bottom: 0.7rem;
-    }
-    .about-text a { color: var(--light-tan); }
-    .about-text strong {
-      display: block; margin-top: 1.5rem; margin-bottom: 0.5rem;
-      font-family: var(--display); font-size: 0.75rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--light-tan);
-    }
-
-    /* ── COURSES ── */
-    .courses { background: var(--warm-white); padding: 6vw 4vw; }
-    .courses-inner { max-width: 1200px; margin: 0 auto; }
-    .carousel-wrapper { position: relative; overflow: hidden; }
-    .carousel-track {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
-    }
-    .course-card { text-align: center; padding: 2rem 1rem; }
-    .course-card h2 {
-      font-family: var(--serif); font-size: 1.3rem; color: var(--warm-brown);
-      margin-bottom: 1rem; line-height: 1.4;
-    }
-    .course-card p { font-size: 0.88rem; line-height: 1.8; color: #5a4a36; margin-bottom: 0.5rem; }
-    .course-btn {
-      display: inline-block; margin-top: 1.2rem;
-      border: 1px solid var(--warm-brown); color: var(--warm-brown);
-      font-family: var(--display); font-size: 0.75rem; letter-spacing: 0.1em;
-      text-transform: uppercase; text-decoration: none;
-      padding: 0.7rem 1.6rem;
-      transition: background 0.25s, color 0.25s;
-    }
-    .course-btn:hover { background: var(--warm-brown); color: var(--warm-white); }
-    .carousel-nav {
-      display: flex; gap: 1rem; margin-top: 2.5rem; justify-content: flex-start;
-      padding-left: 3vw;
-    }
-    .carousel-btn {
-      background: none; border: 1px solid var(--warm-brown); padding: 0.5rem 1.2rem;
-      cursor: pointer; font-family: var(--display); font-size: 0.75rem;
-      letter-spacing: 0.1em; color: var(--warm-brown); transition: all 0.25s;
-    }
-    .carousel-btn:hover { background: var(--warm-brown); color: var(--warm-white); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #3a2f22; color: rgba(255,255,255,0.75);
-      padding: 5vw 4vw;
-    }
-    .footer-grid {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 3rem; align-items: start;
-    }
-    .footer-brand {
-      font-family: var(--display); font-size: 1.1rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-    }
-    .footer-subscribe h3 {
-      font-family: var(--display); font-size: 1rem; letter-spacing: 0.08em;
-      text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 0.5rem;
-    }
-    .footer-subscribe p { font-size: 0.82rem; margin-bottom: 1.2rem; line-height: 1.7; }
-    .subscribe-form { display: flex; gap: 0; }
-    .subscribe-form input {
-      flex: 1; padding: 0.7rem 1rem; background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.25); border-right: none;
-      color: #fff; font-family: var(--sans); font-size: 0.85rem;
-      outline: none;
-    }
-    .subscribe-form input::placeholder { color: rgba(255,255,255,0.45); }
-    .subscribe-form button {
-      padding: 0.7rem 1.2rem; background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25); color: #fff;
-      font-family: var(--display); font-size: 0.72rem; letter-spacing: 0.1em;
-      text-transform: uppercase; cursor: pointer; transition: background 0.25s;
-    }
-    .subscribe-form button:hover { background: rgba(255,255,255,0.28); }
-    .footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.8rem; line-height: 1.6; }
-    .footer-right { text-align: center; }
-    .footer-right a {
-      font-family: var(--display); font-size: 0.95rem;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: rgba(255,255,255,0.85); text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.35);
-      padding-bottom: 0.3rem; margin-bottom: 1.5rem;
-      display: inline-block;
-    }
-    .footer-social { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; }
-    .footer-social a { color: rgba(255,255,255,0.7); transition: color 0.2s; }
-    .footer-social a:hover { color: #fff; }
-    .footer-social svg { width: 24px; height: 24px; }
-    .copyright { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; line-height: 1.8; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .about-intro-grid { grid-template-columns: 1fr; }
-      .about-columns { grid-template-columns: 1fr; }
-      .carousel-track { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      nav, .social-links { display: none; }
-      .burger { display: flex; }
-    }
-    @media (max-width: 600px) {
-      .hero-content { padding: 2rem 1.2rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
 
 <!-- HEADER -->
 <header id="header">
   <div class="header-inner">
-    <a class="logo" href="#">Julie Lam</a>
+    <a class="logo" href="index.html">Julie Lam</a>
     <nav>
-      <a href="#">Home</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About Me</a>
       <div class="nav-folder">
         <button>Courses ○</button>
         <div class="dropdown">
@@ -284,7 +32,7 @@
       </div>
       <a href="book.html">My Book</a>
       <a href="#">Events &amp; Workshops</a>
-      <a href="#">Blog</a>
+      <a href="blog.html">Blog</a>
       <a href="#">Connect</a>
     </nav>
     <div class="social-links">
@@ -303,11 +51,12 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#">Home</a>
-  <a href="#">Courses</a>
-  <a href="#">My Book</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Me</a>
+  <a href="courses.html">Courses</a>
+  <a href="book.html">My Book</a>
   <a href="#">Events &amp; Workshops</a>
-  <a href="#">Blog</a>
+  <a href="blog.html">Blog</a>
   <a href="#">Connect</a>
 </div>
 
@@ -378,7 +127,7 @@
         <p>And I know the moment of realising I was carrying more than was mine.</p>
         <p>The way we are met as children shapes how we relate as adults. It shapes how we speak in a meeting. How we respond to conflict. How much we believe we must hold on our own.</p>
         <p>Connected Presence grew from years of observing this arc across generations and cultures.</p>
-        <p>My book, <a href="#"><em>From the Heart of Childhood: Reclaiming Presence for Connection</em></a>, holds many of the reflections and experiences that shaped the 8 stage Connected Presence Pathway.</p>
+        <p>My book, <a href="book.html"><em>From the Heart of Childhood: Reclaiming Presence for Connection</em></a>, holds many of the reflections and experiences that shaped the 8 stage Connected Presence Pathway.</p>
         <p>I do not teach women to push harder. I help them recognise the patterns that once kept them safe and capable, and to soften and listen to what is now needed.</p>
         <p>So they can lead with clarity rather than constant effort. So they can feel present without carrying everything alone.</p>
         <strong>Professional Background</strong>
@@ -470,12 +219,10 @@
 </footer>
 
 <script>
-  // Mobile menu
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
 
-  // Simple carousel: show/hide 4th card
   let showing4 = false;
   document.getElementById('nextBtn').addEventListener('click', () => {
     const c4 = document.getElementById('course4');
@@ -486,7 +233,6 @@
     if (showing4) { c4.style.display = 'none'; showing4 = false; }
   });
 
-  // Sticky header hide on scroll down
   let lastY = 0;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
