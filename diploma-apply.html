@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apply — Conscious Teaching Diploma — Julie Lam</title>
+  <meta name="description" content="Applications and enquiries for the CFI Level 4 Diploma in Integrative Early Childhood Pedagogy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Mulish:wght@300;400;500;600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .name-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); }
+    @media (max-width: 560px) { .name-row { grid-template-columns: 1fr; } }
+    .radio-group { display: flex; gap: 28px; margin-top: 8px; }
+    .radio-group label { display: flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 15px; color: var(--ink-2); cursor: pointer; }
+    .radio-group input[type="radio"] { accent-color: var(--gold); width: 16px; height: 16px; }
+    .apply-instructions { background: var(--bg-2); border: 1px solid var(--rule); padding: clamp(28px, 4vw, 44px); margin-bottom: clamp(40px, 6vw, 64px); }
+    .apply-instructions p { font-family: var(--book); font-size: 16px; line-height: 1.85; color: var(--ink-2); margin: 0; }
+    .apply-instructions a { color: var(--gold); border-bottom: 1px solid currentColor; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" aria-label="Julie Lam — home">
+      <img class="brand-logo" src="images/logo.webp" alt="Julie Lam">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="courses.html" class="nav-link active">Courses</a>
+      <a href="book.html" class="nav-link">My Book</a>
+      <a href="events.html" class="nav-link">Events</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="connect.html" class="nav-link">Connect</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:18px">
+      <div class="nav-social">
+        <a href="http://instagram.com/thejulielam" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 64 64"><path d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,25.993c-0.994,0-1.8-0.806-1.8-1.8s0.806-1.8,1.8-1.8s1.8,0.806,1.8,1.8S41.001,25.993,40.007,25.993z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/JulieLam" target="_blank" rel="noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 64 64"><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z"/></svg>
+        </a>
+      </div>
+      <a href="diploma-apply.html" class="nav-cta">Apply</a>
+      <button class="nav-mobile-toggle" id="menu-toggle" aria-label="Menu"><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="courses.html">Courses</a>
+    <a href="book.html">My Book</a>
+    <a href="events.html">Events</a>
+    <a href="blog.html">Blog</a>
+    <a href="connect.html">Connect</a>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero" style="min-height:44vh;background:linear-gradient(160deg,#1e140a,#2d2010 50%,#1a1208)">
+    <div class="hero-inner">
+      <div class="hero-content" style="max-width:720px">
+        <div class="eyebrow on-dark">Conscious Teaching Diploma</div>
+        <h1 class="hero-title" style="font-size:clamp(32px,4.2vw,60px);line-height:1.1;margin-top:16px">Applications &amp; <span class="italic">Enquiries</span></h1>
+      </div>
+    </div>
+    <div class="wave">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1440,0 1440,30 L1440,60 L0,60 Z" fill="#f6f3ec"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section style="padding-top:clamp(40px,6vw,84px)">
+    <div class="wrap">
+      <div style="max-width:700px;margin:0 auto">
+
+        <!-- Application instructions -->
+        <div class="apply-instructions reveal">
+          <p>Please download and complete the application form <a href="documents/CT+Application+Form.docx">HERE</a> and email the document with your CV, a copy of your ID and application fee receipt to <a href="mailto:admin@wellsprings.edu.hk">admin@wellsprings.edu.hk</a></p>
+        </div>
+
+        <!-- Enquiry form -->
+        <div class="reveal">
+          <div class="eyebrow">Enquiries</div>
+          <h2 class="section-title" style="margin-top:12px;font-size:clamp(26px,3.2vw,40px)">If you have questions,<br><span class="italic">we're here to help.</span></h2>
+          <p style="margin-top:16px;font-size:15px;color:var(--ink-2);line-height:1.75">Fill out the form below and we'll get back to you as soon as possible.</p>
+
+          <!-- Replace YOUR_DIPLOMA_FORM_ID with the ID from your Formspree dashboard (formspree.io) -->
+          <form action="https://formspree.io/f/YOUR_DIPLOMA_FORM_ID" method="post" style="margin-top:34px" id="apply-form">
+
+            <div class="name-row">
+              <div class="field">
+                <label for="first-name">First Name <span style="color:var(--gold)">*</span></label>
+                <input id="first-name" name="first_name" type="text" required autocomplete="given-name">
+              </div>
+              <div class="field">
+                <label for="last-name">Last Name <span style="color:var(--gold)">*</span></label>
+                <input id="last-name" name="last_name" type="text" required autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email <span style="color:var(--gold)">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email">
+            </div>
+
+            <div class="field">
+              <label for="subject">Subject <span style="color:var(--gold)">*</span></label>
+              <input id="subject" name="subject" type="text" required>
+            </div>
+
+            <div class="field">
+              <label for="message">Message <span style="color:var(--gold)">*</span></label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+
+            <div class="field">
+              <label>Marketing Preferences <span style="color:var(--gold)">*</span></label>
+              <p style="font-size:14px;color:var(--ink-3);margin:6px 0 10px;line-height:1.6">Would you like to receive our newsletter? Events &amp; workshops, blog posts, and more!</p>
+              <div class="radio-group">
+                <label><input type="radio" name="newsletter" value="Yes" required> Yes</label>
+                <label><input type="radio" name="newsletter" value="No"> No</label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="referral">How did you hear about us? <span style="color:var(--gold)">*</span></label>
+              <input id="referral" name="referral" type="text" required>
+            </div>
+
+            <button type="submit" class="btn btn-solid" style="margin-top:6px">Send <span class="arrow">→</span></button>
+          </form>
+
+          <!-- Thank-you message shown after submit -->
+          <div id="form-thanks" style="display:none;margin-top:36px;padding:26px;border:1px solid var(--rule);background:var(--bg-2)">
+            <div class="eyebrow">Received</div>
+            <p style="font-family:var(--serif);font-size:26px;margin-top:10px;margin-bottom:16px">Thank you. We'll be in touch soon.</p>
+            <button class="text-link" onclick="document.getElementById('form-thanks').style.display='none';document.getElementById('apply-form').style.display='block'">Send another →</button>
+          </div>
+        </div>
+
+        <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--rule)">
+          <a href="diploma.html" style="font-family:var(--display);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:600">← Back to the Diploma</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div>
+        <h3 class="foot-title">There is another way<br><span class="italic">to lead.</span></h3>
+        <p>Sign up to receive reflections, new articles, and openings for the next journey. No noise — only what serves.</p>
+        <form action="https://YOUR_ACCOUNT.us1.list-manage.com/subscribe/post?u=XXXXXXXX&amp;id=XXXXXXXX" method="post" target="_blank" novalidate class="subscribe">
+          <input type="email" name="EMAIL" placeholder="Email address" required>
+          <div class="mc-honeypot" aria-hidden="true"><input type="text" name="b_XXXXXXXX_XXXXXXXX" tabindex="-1" value=""></div>
+          <button type="submit" name="subscribe">Sign Up</button>
+        </form>
+        <p style="font-size:12.5px;margin-top:14px;color:rgba(255,255,255,0.5)">We respect your privacy. We will not share your email with anyone.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="courses.html">The Connected Presence Practice</a></li>
+          <li><a href="courses.html">1:1 Presence Sessions</a></li>
+          <li><a href="courses.html">Mini Courses</a></li>
+          <li><a href="diploma.html">Level 4 Diploma</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="book.html">My Book</a></li>
+          <li><a href="events.html">Events &amp; Workshops</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="connect.html">Connect</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="copy">© 1992 Highgate House School Foundation Ltd.<br>www.julie-lam.com · All rights reserved.</span>
+      <div class="foot-social">
+        <a href="http://instagram.com/thejulielam" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 64 64"><path d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,25.993c-0.994,0-1.8-0.806-1.8-1.8s0.806-1.8,1.8-1.8s1.8,0.806,1.8,1.8S41.001,25.993,40.007,25.993z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/JulieLam" target="_blank" rel="noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 64 64"><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('apply-form');
+  const thanks = document.getElementById('form-thanks');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        if (res.ok) {
+          form.style.display = 'none';
+          thanks.style.display = 'block';
+        } else {
+          form.submit();
+        }
+      } catch {
+        form.submit();
+      }
+    });
+  }
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
