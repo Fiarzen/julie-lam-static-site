@@ -3,242 +3,285 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Julie Lam</title>
+  <title>Julie Lam — The Connected Presence Practice</title>
+  <meta name="description" content="A structured developmental pathway for high-responsibility women who care deeply and carry a great deal.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Mulish:wght@300;400;500&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/home.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Mulish:wght@300;400;500;600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<!-- HEADER -->
-<header id="header">
-  <div class="header-inner">
-    <a class="logo" href="index.html">Julie Lam</a>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About Me</a>
-      <div class="nav-folder">
-        <button>Courses ○</button>
-        <div class="dropdown">
-          <a href="#">The Connected Presence Practice</a>
-          <a href="#">1:1 Presence</a>
-          <a href="#">Mini Courses</a>
-          <a href="#">Teacher Training Qualification</a>
-        </div>
-      </div>
-      <a href="book.html">My Book</a>
-      <a href="#">Events &amp; Workshops</a>
-      <a href="blog.html">Blog</a>
-      <a href="#">Connect</a>
+<!-- NAV -->
+<header class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" aria-label="Julie Lam — home">
+      <img class="brand-logo" src="images/logo.webp" alt="Julie Lam">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="courses.html" class="nav-link">Courses</a>
+      <a href="book.html" class="nav-link">My Book</a>
+      <a href="events.html" class="nav-link">Events</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="connect.html" class="nav-link">Connect</a>
     </nav>
-    <div class="social-links">
-      <a href="http://instagram.com/thejulielam" target="_blank" aria-label="Instagram">
-        <svg viewBox="0 0 64 64" fill="currentColor"><path d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,25.993c-0.994,0-1.8-0.806-1.8-1.8s0.806-1.8,1.8-1.8s1.8,0.806,1.8,1.8S41.001,25.993,40.007,25.993z"/></svg>
-      </a>
-      <a href="https://www.facebook.com/JulieLam" target="_blank" aria-label="Facebook">
-        <svg viewBox="0 0 64 64" fill="currentColor"><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z"/></svg>
-      </a>
+    <div style="display:flex;align-items:center;gap:18px">
+      <div class="nav-social">
+        <a href="http://instagram.com/thejulielam" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 64 64"><path d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,25.993c-0.994,0-1.8-0.806-1.8-1.8s0.806-1.8,1.8-1.8s1.8,0.806,1.8,1.8S41.001,25.993,40.007,25.993z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/JulieLam" target="_blank" rel="noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 64 64"><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z"/></svg>
+        </a>
+      </div>
+      <a href="courses.html" class="nav-cta">Apply</a>
+      <button class="nav-mobile-toggle" id="menu-toggle" aria-label="Menu"><span></span><span></span></button>
     </div>
-    <button class="burger" id="burgerBtn" aria-label="Menu">
-      <span></span><span></span>
-    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="courses.html">Courses</a>
+    <a href="book.html">My Book</a>
+    <a href="events.html">Events</a>
+    <a href="blog.html">Blog</a>
+    <a href="connect.html">Connect</a>
   </div>
 </header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About Me</a>
-  <a href="courses.html">Courses</a>
-  <a href="book.html">My Book</a>
-  <a href="#">Events &amp; Workshops</a>
-  <a href="blog.html">Blog</a>
-  <a href="#">Connect</a>
-</div>
+<main class="page">
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>The Connected Presence<br>PRACTICE</h1>
-    <div class="tagline">
-      <strong>True Leadership does not control.</strong><br>
-      <strong>It empowers through aware presence.</strong>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"><img src="images/forest-path.webp" alt=""></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="eyebrow on-dark">The Connected Presence Practice</div>
+        <h1 class="hero-title">True leadership<br>does not control.<br><span class="italic">It empowers.</span></h1>
+        <p class="hero-tagline">A structured developmental pathway for high-responsibility women who care deeply and carry a great deal.</p>
+        <p class="hero-sub">The way you were met as a child still shapes how you carry responsibility today. <strong>There is another way to lead.</strong></p>
+        <div style="margin-top:36px">
+          <a href="courses.html" class="btn btn-light-solid">Apply for the Journey <span class="arrow">→</span></a>
+        </div>
+      </div>
     </div>
-    <p>A structured developmental pathway for high responsibility women who care deeply and carry a great deal.</p>
-    <p>The way you were met as a child still shapes how you carry responsibility today.</p>
-    <p>There is another way to lead.</p>
-    <a href="#" class="hero-cta">Apply for the 8 Week Journey</a>
-  </div>
-  <div class="wavy-divider">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1440,0 1440,30 L1440,60 L0,60 Z" fill="#f6f3ec"/>
-    </svg>
-  </div>
-</section>
+    <div class="wave">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1440,0 1440,30 L1440,60 L0,60 Z" fill="#f6f3ec"/>
+      </svg>
+    </div>
+  </section>
 
-<!-- YOU DID NOT BECOME THIS WAY BY ACCIDENT -->
-<section class="about-intro">
-  <div class="about-intro-grid">
-    <img class="about-intro-img"
-      src="images/julie-lam.jpg"
-      alt="Julie Lam" loading="lazy">
-    <div class="about-intro-text">
-      <h2>You did not become this way by accident</h2>
-      <p>The women I work with think deeply.</p>
-      <p>They care deeply.</p>
-      <p>They notice things others often miss.</p>
-      <p>They hold responsibility with sincerity.</p>
-      <p>They are often the steady one in the room.</p>
-      <p>And somewhere along the way, they learned to carry more than was theirs.</p>
-      <p>Not because they had to. Because they could.</p>
-      <p>If something felt uncertain, they stepped in. If someone struggled, they compensated. If something might fall apart, they held it together.</p>
-      <p>Over time, that capacity became over carrying.</p>
-      <p>They support everyone else. And quietly move themselves to the bottom of the list.</p>
-      <p>They do not see it as neglect. They see it as responsibility.</p>
-      <p>But inside, it feels effortful. Like a subtle tightening. Like life is being managed rather than experienced.</p>
-      <p>That is not weakness.</p>
-      <div class="highlight-text">It is a developmental pattern that has not yet been integrated.<br><br>Competence can quietly become over carrying. Carrying more than your share can become a habit.</div>
+  <!-- YOU DID NOT BECOME THIS WAY BY ACCIDENT -->
+  <section>
+    <div class="wrap">
+      <div class="intro-grid">
+        <div class="reveal">
+          <img class="intro-img" src="images/julie-bench.webp" alt="Julie Lam">
+        </div>
+        <div class="reveal" data-delay="120">
+          <div class="eyebrow" style="margin-bottom:18px">You did not become this way by accident</div>
+          <div class="intro-lines">
+            <p class="short">The women I work with think deeply.</p>
+            <p class="short">They care deeply.</p>
+            <p>They notice things others often miss. They hold responsibility with sincerity. They are often the steady one in the room.</p>
+            <p>And somewhere along the way, they learned to carry more than was theirs — not because they had to, but because they could.</p>
+            <p>If something felt uncertain, they stepped in. If someone struggled, they compensated. If something might fall apart, they held it together.</p>
+            <p>Over time, that capacity became over-carrying. They support everyone else, and quietly move themselves to the bottom of the list.</p>
+            <div class="highlight">That is not weakness. It is a developmental pattern that has not yet been integrated. Competence can quietly become over-carrying.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-inner">
+      <span class="marquee-item">listening</span>
+      <span class="marquee-item">presence</span>
+      <span class="marquee-item">steadiness</span>
+      <span class="marquee-item">connection</span>
+      <span class="marquee-item">clarity</span>
+      <span class="marquee-item">spaciousness</span>
+      <span class="marquee-item">listening</span>
+      <span class="marquee-item">presence</span>
+      <span class="marquee-item">steadiness</span>
+      <span class="marquee-item">connection</span>
+      <span class="marquee-item">clarity</span>
+      <span class="marquee-item">spaciousness</span>
+    </div>
+    <div class="marquee-inner" aria-hidden="true">
+      <span class="marquee-item">listening</span>
+      <span class="marquee-item">presence</span>
+      <span class="marquee-item">steadiness</span>
+      <span class="marquee-item">connection</span>
+      <span class="marquee-item">clarity</span>
+      <span class="marquee-item">spaciousness</span>
+      <span class="marquee-item">listening</span>
+      <span class="marquee-item">presence</span>
+      <span class="marquee-item">steadiness</span>
+      <span class="marquee-item">connection</span>
+      <span class="marquee-item">clarity</span>
+      <span class="marquee-item">spaciousness</span>
     </div>
   </div>
-</section>
 
-<!-- ABOUT ME -->
-<section class="about-section">
-  <div class="about-section-inner">
-    <div class="about-columns">
+  <!-- OFFERINGS -->
+  <section>
+    <div class="section-head wrap" style="padding:0">
+      <div><div class="eyebrow">Ways to Practise</div></div>
       <div>
-        <h2>About Me</h2>
+        <h2 class="section-title">Structured pathways toward <span class="italic">presence.</span></h2>
+        <div style="margin-top:18px;max-width:560px">Practical. Developmental. Deeply human. Whether in a small group, one-to-one, or at your own pace — the practice meets you where you are.</div>
       </div>
-      <div class="about-text">
-        <p>For nearly forty years I have worked closely with children, parents, teachers, and leaders.</p>
-        <p>I founded and led early childhood schools in both Hong Kong and the UK, bridging educational approaches across cultures and working closely with families from diverse backgrounds. I established a school for my own children. I developed and led a UK government recognised training programme.</p>
-        <p>But what shaped me most was not the institutions. It was observing.</p>
-        <p>Watching what happens when a child feels safe and truly met. Observing what happens when they do not.</p>
-        <p>Some children withdraw. Some become very compliant. Some act out, call out, or test the edges of the room.</p>
-        <p>None of this is random. It is adaptation.</p>
-        <p>Years later, I began to recognise those same patterns in capable, responsible adults. The over functioning. The constant managing. The quiet self neglect.</p>
-        <p>I have raised four children. I am now a grandmother. I know what it is to hold responsibility for others. To be relied upon. To stay steady even when you are exhausted.</p>
-        <p>And I know the moment of realising I was carrying more than was mine.</p>
-        <p>The way we are met as children shapes how we relate as adults. It shapes how we speak in a meeting. How we respond to conflict. How much we believe we must hold on our own.</p>
-        <p>Connected Presence grew from years of observing this arc across generations and cultures.</p>
-        <p>My book, <a href="book.html"><em>From the Heart of Childhood: Reclaiming Presence for Connection</em></a>, holds many of the reflections and experiences that shaped the 8 stage Connected Presence Pathway.</p>
-        <p>I do not teach women to push harder. I help them recognise the patterns that once kept them safe and capable, and to soften and listen to what is now needed.</p>
-        <p>So they can lead with clarity rather than constant effort. So they can feel present without carrying everything alone.</p>
-        <strong>Professional Background</strong>
-        <p>I hold a university degree in Language and Management and trained as an Early Childhood Teacher. I am qualified in Therapeutic Play, Counselling, and Nutrition. I developed and led a UK government recognised training programme. I am a published author and a recognised teacher with the Active Practical Love Initiative, and I have undertaken Compassionate Inquiry study.</p>
-        <p>When early patterns are brought into awareness and gently integrated, something shifts. Leadership becomes steadier. Relationships feel less effortful. Life feels less like something to manage and more like something to inhabit.</p>
-        <p><a href="#">Explore the 8 Week Connected Presence Practice →</a></p>
+    </div>
+    <div class="wrap">
+      <div class="offerings">
+        <div class="reveal" data-delay="0">
+          <div class="offering">
+            <img class="offering-img" src="images/tea-hands.webp" alt="">
+            <div class="offering-meta"><span>Group · 16 weeks</span><span>Max 12 participants</span></div>
+            <h3 class="offering-name">The Connected Presence Practice</h3>
+            <p>A 16-week small-group experience for high-responsibility women ready to feel more steady, more connected, and more fully themselves again.</p>
+            <a href="courses.html" class="text-link">Discover more →</a>
+          </div>
+        </div>
+        <div class="reveal" data-delay="110">
+          <div class="offering">
+            <img class="offering-img" src="images/lake-talk.webp" alt="">
+            <div class="offering-meta"><span>1:1 · Private</span><span>By request</span></div>
+            <h3 class="offering-name">1:1 Presence Sessions</h3>
+            <p>A more personal and tailored experience of the pathway. We work at your pace, with more time to explore, reflect, and integrate.</p>
+            <a href="courses.html" class="text-link">Find out more →</a>
+          </div>
+        </div>
+        <div class="reveal" data-delay="220">
+          <div class="offering">
+            <img class="offering-img" src="images/child-tree.webp" alt="">
+            <div class="offering-meta"><span>Self-paced</span><span>Parents · teachers</span></div>
+            <h3 class="offering-name">Mini Courses</h3>
+            <p>For parents, teachers, and therapists who want a deeper understanding of childhood development and the role of presence in learning.</p>
+            <a href="courses.html" class="text-link">Click here →</a>
+          </div>
+        </div>
       </div>
+
+      <div class="reveal">
+        <div class="diploma">
+          <div>
+            <div class="eyebrow" style="margin-bottom:10px">Teacher Training Qualification</div>
+            <h3>Level 4 Diploma in Steiner Waldorf Early Childhood Studies</h3>
+            <p>Online sessions, an extensive resource library, and guidance into artistic and self-development practice. The full course leads to a Level 4 Diploma through Crossfields Institute — a UK Ofqual recognised Early Years teaching qualification.</p>
+          </div>
+          <img class="diploma-logo" src="images/crossfields.webp" alt="Crossfields Institute">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <div class="pull">
+    <div class="pull-bg"><img src="images/ripple.webp" alt=""></div>
+    <div class="pull-inner wrap">
+      <p class="pull-text">Life feels less like something to manage, and more like something to inhabit.</p>
+      <div class="pull-attr">The Connected Presence Practice</div>
     </div>
   </div>
-</section>
 
-<!-- COURSES -->
-<section class="courses" id="courses">
-  <div class="courses-inner">
-    <div class="carousel-track" id="carouselTrack">
-
-      <div class="course-card">
-        <h2>The Connected Presence Practice</h2>
-        <p>An 8 week small group experience for high responsibility women who are ready to feel more steady, more connected, and more fully themselves again.</p>
-        <p>Through weekly live sessions and simple daily reflection, you move through a structured 8 stage developmental pathway that restores grounded presence across body, heart, and mind.</p>
-        <p>Transformation happens through listening, relational depth, and steady participation in a carefully held group of no more than 10 women.</p>
-        <p><em>Practical. Developmental. Deeply human.</em></p>
-        <a class="course-btn" href="#">Discover More</a>
+  <!-- BOOK TEASER -->
+  <section class="espresso">
+    <div class="wrap">
+      <div class="bio-grid">
+        <div class="reveal">
+          <img class="cover-shadow" src="images/book-cover.webp" alt="From the Heart of Childhood" style="width:100%">
+        </div>
+        <div class="reveal" data-delay="120">
+          <div class="eyebrow on-dark" style="margin-bottom:18px">My Book</div>
+          <h2 class="section-title" style="color:#fff">From the Heart of <span class="italic">Childhood.</span></h2>
+          <p class="lede" style="color:rgba(255,255,255,0.9);margin-top:22px">The future of the world depends on the presence we bring to our children today.</p>
+          <p style="margin-top:18px;max-width:520px">Through gentle storytelling and lived insight, a journey from the innocent wonder of childhood to the integrated wisdom of conscious adulthood. The book gave birth to The Connected Presence Practice.</p>
+          <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap">
+            <a href="book.html" class="btn btn-light-solid">Read more <span class="arrow">→</span></a>
+            <a href="book.html" class="btn btn-light">Order the book</a>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="course-card">
-        <h2>1:1 Presence Sessions</h2>
-        <p>A more personal and tailored experience of the Connected Presence pathway.</p>
-        <p>In private mentoring, we work at your pace, focusing on the specific situations and responsibilities you are navigating in your leadership, family, and relationships.</p>
-        <p>There is more time to explore, reflect, and integrate.</p>
-        <p><em>Steady guidance. Careful listening. Depth without rush.</em></p>
-        <p>Enquiry by request.</p>
-        <a class="course-btn" href="#">Find Out More</a>
+  <!-- ACCREDITATION -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="accred">
+        <span class="eyebrow">Accredited &amp; informed by</span>
+        <div class="accred-logos">
+          <img src="images/crossfields.webp" alt="Crossfields Institute">
+          <span style="font-family:var(--book);font-style:italic;font-size:17px;color:var(--ink-2)">Ofqual recognised</span>
+          <span style="font-family:var(--display);font-size:13px;letter-spacing:0.06em;font-weight:600;color:var(--ink-2)">Active Practical Love Initiative</span>
+          <span style="font-family:var(--book);font-style:italic;font-size:17px;color:var(--ink-2)">Compassionate Inquiry</span>
+        </div>
       </div>
-
-      <div class="course-card">
-        <h2>Mini Courses</h2>
-        <p>Self paced courses for parents, teachers, and therapists who want a deeper understanding of childhood development and the role of presence in shaping learning.</p>
-        <p>Drawn from decades of school leadership and teacher training, these courses explore play, storytelling, behaviour, and artistic practice in a grounded and practical way.</p>
-        <p><em>Thoughtful. Relational. Immediately applicable.</em></p>
-        <a class="course-btn" href="#">Click Here</a>
-      </div>
-
     </div>
+  </section>
 
-    <!-- 4th card shown on click -->
-    <div class="course-card" id="course4" style="display:none; margin-top:2rem; text-align:center;">
-      <h2>Level 4 Diploma in Steiner Waldorf Early Childhood Studies</h2>
-      <p>An official training for The Waldorf Early Years Curriculum. It includes online sessions and an extensive online library of resources. Guidance into artistic activity and self development and group processing throughout.</p>
-      <p>There is an option to enrol termly for both parents and teachers. Can be for recognised CPD. The full course leads to a Level 4 Diploma through Crossfields Institute and is a UK Ofqual recognised Early Years teaching course.</p>
-      <a class="course-btn" href="#">More Info Here</a>
-    </div>
-
-    <div class="carousel-nav">
-      <button class="carousel-btn" id="prevBtn">← Previous</button>
-      <button class="carousel-btn" id="nextBtn">Next →</button>
-    </div>
-  </div>
-</section>
+</main>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <p class="footer-brand">Julie Lam</p>
-    </div>
-    <div class="footer-subscribe">
-      <h3>Subscribe</h3>
-      <p>Sign up to receive offers and new articles.</p>
-      <div class="subscribe-form">
-        <input type="email" placeholder="Email Address">
-        <button type="submit">Sign Up</button>
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div>
+        <h3 class="foot-title">There is another way<br><span class="italic">to lead.</span></h3>
+        <p>Sign up to receive reflections, new articles, and openings for the next journey. No noise — only what serves.</p>
+        <!-- Mailchimp signup form -->
+        <!-- Replace the action URL with your Mailchimp list's form action URL -->
+        <!-- Get it from: Mailchimp → Audience → Signup forms → Embedded forms -->
+        <form action="https://YOUR_ACCOUNT.us1.list-manage.com/subscribe/post?u=XXXXXXXX&amp;id=XXXXXXXX" method="post" target="_blank" novalidate class="subscribe">
+          <input type="email" name="EMAIL" placeholder="Email address" required>
+          <div class="mc-honeypot" aria-hidden="true">
+            <input type="text" name="b_XXXXXXXX_XXXXXXXX" tabindex="-1" value="">
+          </div>
+          <button type="submit" name="subscribe">Sign Up</button>
+        </form>
+        <p style="font-size:12.5px;margin-top:14px;color:rgba(255,255,255,0.5)">We respect your privacy. We will not share your email with anyone.</p>
       </div>
-      <p class="footer-note">We respect your privacy. We will not share your email with anyone.</p>
+      <div class="foot-col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="courses.html">The Connected Presence Practice</a></li>
+          <li><a href="courses.html">1:1 Presence Sessions</a></li>
+          <li><a href="courses.html">Mini Courses</a></li>
+          <li><a href="courses.html">Teacher Training Qualification</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="book.html">My Book</a></li>
+          <li><a href="events.html">Events &amp; Workshops</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="connect.html">Connect</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-right">
-      <a href="#">Enquiries</a>
-      <div class="footer-social">
-        <a href="http://instagram.com/thejulielam" target="_blank" aria-label="Instagram">
-          <svg viewBox="0 0 64 64" fill="currentColor"><path d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,25.993c-0.994,0-1.8-0.806-1.8-1.8s0.806-1.8,1.8-1.8s1.8,0.806,1.8,1.8S41.001,25.993,40.007,25.993z"/></svg>
+    <div class="foot-bottom">
+      <span class="copy">© 1992 Highgate House School Foundation Ltd.<br>www.julie-lam.com · All rights reserved.</span>
+      <div class="foot-social">
+        <a href="http://instagram.com/thejulielam" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 64 64"><path d="M46.91,25.816c-0.073-1.597-0.326-2.687-0.697-3.641c-0.383-0.986-0.896-1.823-1.73-2.657c-0.834-0.834-1.67-1.347-2.657-1.73c-0.954-0.371-2.045-0.624-3.641-0.697C36.585,17.017,36.074,17,32,17s-4.585,0.017-6.184,0.09c-1.597,0.073-2.687,0.326-3.641,0.697c-0.986,0.383-1.823,0.896-2.657,1.73c-0.834,0.834-1.347,1.67-1.73,2.657c-0.371,0.954-0.624,2.045-0.697,3.641C17.017,27.415,17,27.926,17,32c0,4.074,0.017,4.585,0.09,6.184c0.073,1.597,0.326,2.687,0.697,3.641c0.383,0.986,0.896,1.823,1.73,2.657c0.834,0.834,1.67,1.347,2.657,1.73c0.954,0.371,2.045,0.624,3.641,0.697C27.415,46.983,27.926,47,32,47s4.585-0.017,6.184-0.09c1.597-0.073,2.687-0.326,3.641-0.697c0.986-0.383,1.823-0.896,2.657-1.73c0.834-0.834,1.347-1.67,1.73-2.657c0.371-0.954,0.624-2.045,0.697-3.641C46.983,36.585,47,36.074,47,32S46.983,27.415,46.91,25.816z M32,37c-2.761,0-5-2.239-5-5c0-2.761,2.239-5,5-5s5,2.239,5,5C37,34.761,34.761,37,32,37z M40.007,25.993c-0.994,0-1.8-0.806-1.8-1.8s0.806-1.8,1.8-1.8s1.8,0.806,1.8,1.8S41.001,25.993,40.007,25.993z"/></svg>
         </a>
-        <a href="https://www.facebook.com/JulieLam" target="_blank" aria-label="Facebook">
-          <svg viewBox="0 0 64 64" fill="currentColor"><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z"/></svg>
+        <a href="https://www.facebook.com/JulieLam" target="_blank" rel="noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 64 64"><path d="M34.1,47V33.3h4.6l0.7-5.3h-5.3v-3.4c0-1.5,0.4-2.6,2.6-2.6l2.8,0v-4.8c-0.5-0.1-2.2-0.2-4.1-0.2c-4.1,0-6.9,2.5-6.9,7V28H24v5.3h4.6V47H34.1z"/></svg>
         </a>
       </div>
-      <p class="copyright">© 1992 HIGHGATE HOUSE SCHOOL FOUNDATION LTD.<br>WWW.JULIE-LAM.COM<br>ALL RIGHTS RESERVED.</p>
     </div>
   </div>
 </footer>
 
-<script>
-  const burgerBtn = document.getElementById('burgerBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-
-  let showing4 = false;
-  document.getElementById('nextBtn').addEventListener('click', () => {
-    const c4 = document.getElementById('course4');
-    if (!showing4) { c4.style.display = 'block'; showing4 = true; }
-  });
-  document.getElementById('prevBtn').addEventListener('click', () => {
-    const c4 = document.getElementById('course4');
-    if (showing4) { c4.style.display = 'none'; showing4 = false; }
-  });
-
-  let lastY = 0;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    document.getElementById('header').style.transform = (y > lastY && y > 80) ? 'translateY(-100%)' : 'translateY(0)';
-    lastY = y;
-  });
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
