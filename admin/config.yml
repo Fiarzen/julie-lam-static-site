@@ -8,7 +8,7 @@ public_folder: "/images/blog"
 
 # Friendlier editor experience for a non-technical author
 publish_mode: editorial_workflow
-site_url: https://www.julie-lam.com
+site_url: https://julie-lam.netlify.app
 
 collections:
   - name: "blog"
