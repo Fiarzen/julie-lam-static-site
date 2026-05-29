@@ -1084,6 +1084,95 @@ section.flush-top {
   margin-top: 12px;
   font-weight: 600;
 }
+/* Post cards are links — strip default anchor styling */
+a.post {
+  text-decoration: none;
+  color: inherit;
+}
+a.post .post-title {
+  transition: color 0.25s ease;
+}
+a.post:hover .post-title {
+  color: var(--gold);
+}
+
+/* ---------- Single post ---------- */
+.post-back {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-3);
+  text-decoration: none;
+  margin-bottom: clamp(28px, 5vw, 48px);
+}
+.post-back:hover {
+  color: var(--gold);
+}
+.post-head {
+  max-width: 660px;
+}
+.post-headline {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(34px, 5vw, 60px);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 8px 0 14px;
+}
+/* Rendered Markdown inside .reader */
+.reader h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.2;
+  margin: 1.6em 0 0.5em;
+}
+.reader h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(21px, 2.4vw, 26px);
+  margin: 1.4em 0 0.4em;
+}
+.reader blockquote {
+  margin: 1.6em 0;
+  padding-left: clamp(20px, 3vw, 32px);
+  border-left: 2px solid var(--gold);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(21px, 2.4vw, 27px);
+  line-height: 1.45;
+  color: var(--ink);
+}
+.reader blockquote p {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+.reader ul,
+.reader ol {
+  font-family: var(--book);
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.85;
+  color: var(--ink-2);
+  margin: 0 0 1.1em;
+  padding-left: 1.4em;
+}
+.reader li {
+  margin: 0 0 0.5em;
+}
+.reader a {
+  color: var(--gold);
+  border-bottom: 1px solid rgba(139, 112, 70, 0.35);
+  text-decoration: none;
+}
+.reader img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.6em 0;
+}
 
 /* ---------- Connect ---------- */
 .connect-grid {

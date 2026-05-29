@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog — Julie Lam</title>
-  <meta name="description" content="Reflections on presence, childhood, leadership, and the quiet art of connection.">
+  <title>Reflection — Julie Lam</title>
+  <meta name="description" content="A reflection by Julie Lam.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Mulish:wght@300;400;500;600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
@@ -53,58 +53,27 @@
 
 <main class="page">
 
-  <!-- HERO -->
-  <section class="hero" style="min-height:52vh">
-    <div class="hero-bg"><img src="images/leaf.webp" alt="" style="object-position:center"></div>
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="eyebrow on-dark">Blog</div>
-        <h1 class="hero-title" style="font-size:clamp(40px,6.5vw,88px)">Reflections.</h1>
-        <p class="hero-tagline">On presence, childhood, leadership, and the quiet art of connection.</p>
+  <!-- POST -->
+  <article>
+    <section class="flush-top" style="padding-top:clamp(96px,12vw,150px);padding-bottom:0">
+      <div class="wrap">
+        <a href="blog.html" class="post-back">← All reflections</a>
+        <header class="post-head" id="post-head" hidden>
+          <div class="post-cat" id="post-category"></div>
+          <h1 class="post-headline" id="post-title"></h1>
+          <div class="post-meta" id="post-date"></div>
+        </header>
       </div>
-    </div>
-    <div class="wave">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1440,0 1440,30 L1440,60 L0,60 Z" fill="#f6f3ec"/>
-      </svg>
-    </div>
-  </section>
+    </section>
 
-  <!-- POSTS -->
-  <section class="flush-top" style="padding-top:clamp(40px,6vw,84px)">
-    <div class="wrap">
-      <!-- Posts are loaded dynamically from blog/posts/*.md (committed by the CMS).
-           The cards below are a no-JavaScript fallback and are replaced on load. -->
-      <div class="posts" id="posts">
-
-        <a class="post reveal" href="post.html?slug=adaptation-in-a-quiet-child">
-          <img class="post-img" src="images/child-tree.webp" alt="">
-          <div class="post-cat">Childhood</div>
-          <h3 class="post-title">What adaptation looks like in a quiet child</h3>
-          <p class="post-excerpt">Some children withdraw. Some become very compliant. None of it is random — it is the beginning of a pattern we carry for life.</p>
-          <div class="post-meta">Reflection · read →</div>
-        </a>
-
-        <a class="post reveal" data-delay="100" href="post.html?slug=when-competence-becomes-over-carrying">
-          <img class="post-img" src="images/tea-hands.webp" alt="">
-          <div class="post-cat">Presence</div>
-          <h3 class="post-title">When competence becomes over-carrying</h3>
-          <p class="post-excerpt">There is a tiredness that doesn't look like tiredness. It looks like capability. On the quiet cost of holding everything together.</p>
-          <div class="post-meta">Reflection · read →</div>
-        </a>
-
-        <a class="post reveal" data-delay="200" href="post.html?slug=leading-without-controlling">
-          <img class="post-img" src="images/lake-talk.webp" alt="">
-          <div class="post-cat">Leadership</div>
-          <h3 class="post-title">Leading without controlling</h3>
-          <p class="post-excerpt">True leadership does not control. It empowers through aware presence. A short note on what changes when we stop managing.</p>
-          <div class="post-meta">Reflection · read →</div>
-        </a>
-
+    <section class="tight">
+      <div class="wrap">
+        <div class="reader" id="post-body">
+          <p id="post-status" style="font-family:var(--book);font-style:italic;color:var(--ink-3)">Loading…</p>
+        </div>
       </div>
-      <p id="posts-empty" hidden style="margin-top:40px;font-size:13px;color:var(--ink-3);font-style:italic;font-family:var(--book)">No reflections published yet — check back soon.</p>
-    </div>
-  </section>
+    </section>
+  </article>
 
 </main>
 
@@ -156,103 +125,54 @@
   </div>
 </footer>
 
-<!-- Front-matter parsing for the dynamic post index (CDN, no build step) -->
+<!-- Markdown rendering + YAML front-matter parsing (CDN, no build step) -->
+<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
 <script>
-  // Lists blog/posts/*.md via the GitHub Contents API (repo is public), reads each
-  // file's front matter, and renders the index. Falls back to the static cards above
-  // if anything fails. No build step required.
-  const GH_API = 'https://api.github.com/repos/Fiarzen/julie-lam-static-site/contents/blog/posts?ref=main';
-
-  function parseFrontMatter(raw) {
+  // Parse "---\nYAML\n---\nbody" into { data, body }.
+  function parsePost(raw) {
     const m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
-    if (!m) return {};
-    return window.jsyaml.load(m[1]) || {};
+    if (!m) return { data: {}, body: raw };
+    return { data: window.jsyaml.load(m[1]) || {}, body: m[2] };
   }
 
   function formatDate(value) {
     const d = new Date(value);
-    return isNaN(d) ? '' : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-  }
-
-  function buildCard(post, index) {
-    const a = document.createElement('a');
-    a.className = 'post reveal';
-    a.dataset.delay = String((index % 3) * 100);
-    a.href = `post.html?slug=${encodeURIComponent(post.slug)}`;
-
-    if (post.data.thumbnail) {
-      const img = document.createElement('img');
-      img.className = 'post-img';
-      img.src = post.data.thumbnail;
-      img.alt = '';
-      a.appendChild(img);
-    }
-    const cat = document.createElement('div');
-    cat.className = 'post-cat';
-    cat.textContent = post.data.category || 'Reflection';
-    const title = document.createElement('h3');
-    title.className = 'post-title';
-    title.textContent = post.data.title || 'Untitled';
-    const excerpt = document.createElement('p');
-    excerpt.className = 'post-excerpt';
-    excerpt.textContent = post.data.excerpt || '';
-    const meta = document.createElement('div');
-    meta.className = 'post-meta';
-    meta.textContent = `${formatDate(post.data.date)} · read →`;
-
-    a.append(cat, title, excerpt, meta);
-    return a;
+    if (isNaN(d)) return '';
+    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
   }
 
   (async function () {
-    const container = document.getElementById('posts');
-    const empty = document.getElementById('posts-empty');
+    const status = document.getElementById('post-status');
+    const slug = new URLSearchParams(location.search).get('slug');
+
+    if (!slug || !/^[a-z0-9-]+$/i.test(slug)) {
+      status.textContent = 'Post not found. ';
+      const back = document.createElement('a');
+      back.href = 'blog.html'; back.className = 'inline'; back.textContent = 'Back to the blog →';
+      status.appendChild(back);
+      return;
+    }
+
     try {
-      const listRes = await fetch(GH_API, { headers: { Accept: 'application/vnd.github+json' } });
-      if (!listRes.ok) return; // keep static fallback
-      const files = (await listRes.json()).filter(f => f.name.endsWith('.md'));
+      const res = await fetch(`blog/posts/${slug}.md`, { cache: 'no-cache' });
+      if (!res.ok) throw new Error('not found');
+      const { data, body } = parsePost(await res.text());
 
-      const posts = await Promise.all(files.map(async f => {
-        const raw = await (await fetch(f.download_url, { cache: 'no-cache' })).text();
-        return { slug: f.name.replace(/\.md$/, ''), data: parseFrontMatter(raw) };
-      }));
+      document.title = `${data.title || 'Reflection'} — Julie Lam`;
+      document.getElementById('post-title').textContent = data.title || '';
+      document.getElementById('post-category').textContent = data.category || 'Reflection';
+      document.getElementById('post-date').textContent = formatDate(data.date);
+      document.getElementById('post-head').hidden = false;
 
-      const published = posts
-        .filter(p => !p.data.draft)
-        .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
-
-      container.innerHTML = '';
-      if (!published.length) { empty.hidden = false; return; }
-      published.forEach((p, i) => container.appendChild(buildCard(p, i)));
-
-      // main.js's reveal observer already ran, so reveal newly-added cards here.
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            const delay = parseInt(e.target.dataset.delay || '0', 10);
-            setTimeout(() => e.target.classList.add('in'), delay);
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12 });
-      container.querySelectorAll('.reveal').forEach(el => io.observe(el));
+      document.getElementById('post-body').innerHTML = window.marked.parse(body);
     } catch (err) {
-      /* network error — leave the static fallback cards in place */
+      status.textContent = 'This reflection could not be found. ';
+      const back = document.createElement('a');
+      back.href = 'blog.html'; back.className = 'inline'; back.textContent = 'Back to the blog →';
+      status.appendChild(back);
     }
   })();
-</script>
-
-<!-- Netlify Identity: routes invite / confirmation links to the CMS login -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on('init', user => {
-      if (!user) {
-        window.netlifyIdentity.on('login', () => { document.location.href = '/admin/'; });
-      }
-    });
-  }
 </script>
 <script src="js/main.js"></script>
 </body>

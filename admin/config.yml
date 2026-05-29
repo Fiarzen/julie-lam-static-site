@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded images are committed, and how they're referenced on the site
+media_folder: "images/blog"
+public_folder: "/images/blog"
+
+# Friendlier editor experience for a non-technical author
+publish_mode: editorial_workflow
+site_url: https://www.julie-lam.com
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "blog/posts"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}  ·  {{date}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        default: "Reflection"
+        options: ["Reflection", "Childhood", "Presence", "Leadership"]
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Thumbnail Image", name: "thumbnail", widget: "image", required: false, hint: "Shown on the blog index card." }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "One or two sentences shown on the blog index." }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false, hint: "If on, the post is hidden from the live blog." }
+      - { label: "Body", name: "body", widget: "markdown" }

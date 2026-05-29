@@ -1,0 +1,5 @@
+# Buildless static site — no framework, no build step.
+# Netlify just publishes the repo root as-is.
+[build]
+  publish = "."
+  command = ""
